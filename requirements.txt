@@ -2,7 +2,12 @@
 httpx[http2]>=0.27.0
 aiohttp>=3.9.0
 curl-cffi>=0.6.0
-playwright>=1.40.0
+
+# Browser Automation (choose one)
+# playwright>=1.40.0        # Powerful but heavy (~300MB)
+DrissionPage>=4.0.0         # Lightweight, uses installed Chrome
+# selenium>=4.15.0          # Stable, widely used
+# undetected-chromedriver>=3.5.0  # Best anti-bot bypass
 
 # TLS Fingerprinting
 tls-client>=0.2.1

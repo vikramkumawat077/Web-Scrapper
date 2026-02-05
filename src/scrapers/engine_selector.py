@@ -15,6 +15,7 @@ from src.protection.detector import detect_protection, ProtectionType
 # Engine instances
 _httpx_scraper = None
 _curl_scraper = None
+_browser_scraper = None
 
 
 def get_httpx_scraper() -> HttpxScraper:

@@ -53,8 +53,18 @@ class DatabaseConfig:
 @dataclass 
 class LLMConfig:
     """LLM Configuration"""
+    # Ollama (local)
     ollama_host: str = field(default_factory=lambda: os.getenv("OLLAMA_HOST", "http://localhost:11434"))
-    model_name: str = "llama3.2"
+    ollama_model: str = "llama3.2"
+    
+    # Groq (cloud, fast, free tier)
+    groq_api_key: Optional[str] = field(default_factory=lambda: os.getenv("GROQ_API_KEY"))
+    groq_model: str = field(default_factory=lambda: os.getenv("GROQ_MODEL", "llama-3.3-70b-versatile"))
+    
+    @property
+    def use_groq(self) -> bool:
+        """Use Groq if API key is available"""
+        return bool(self.groq_api_key)
 
 
 @dataclass

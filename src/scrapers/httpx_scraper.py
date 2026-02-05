@@ -33,7 +33,7 @@ class HttpxScraper:
         self.client = httpx.AsyncClient(
             http2=True,
             follow_redirects=True,
-            timeout=httpx.Timeout(connect=10.0, read=30.0, write=10.0),
+            timeout=30.0,  # Simple timeout
             limits=httpx.Limits(
                 max_connections=max_connections,
                 max_keepalive_connections=50
